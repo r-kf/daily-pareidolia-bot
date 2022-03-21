@@ -51,8 +51,12 @@ def get_images():
             continue
 
 
-        if submission.title.lower() in statuses or "nsfw" in submission.title.lower():
-            print('Tweet already exists in timeline or not suitable')
+        if submission.title.lower() in statuses:
+            print('Tweet already exists in timeline')
+            continue
+            
+        if submission.over_18 or "nsfw" in submission.title.lower():
+            print('NSFW')
             continue
 
         img_url = submission.url
